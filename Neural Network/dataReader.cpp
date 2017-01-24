@@ -90,12 +90,14 @@ void dataReader::processLine( string &line )
 	//store inputs		
 	char* cstr = new char[line.size()+1];
 	char* t;
-	strcpy_s(cstr, line.size() + 1, line.c_str());
+	//strcpy_s(cstr, line.size() + 1, line.c_str());
+	strcpy(cstr, line.c_str());
 
 	//tokenise
 	int i = 0;
     char* nextToken = NULL;
-	t=strtok_s(cstr, ",", &nextToken );
+	//t=strtok_s(cstr, ",", &nextToken );
+	t=strtok_r(cstr, ",", &nextToken );
 	
 	while ( t!=NULL && i < (nInputs + nTargets) )
 	{	
@@ -103,7 +105,8 @@ void dataReader::processLine( string &line )
 		else target[i - nInputs] = atof(t);
 
 		//move token onwards
-		t = strtok_s(NULL,",", &nextToken );
+		//t = strtok_s(NULL,",", &nextToken );
+		t = strtok_r(NULL,",", &nextToken );
 		i++;			
 	}
 	

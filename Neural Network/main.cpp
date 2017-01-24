@@ -16,7 +16,7 @@
 //use standard namespace
 using namespace std;
 
-void main()
+int main()
 {		
 	//seed random number generator
 	srand( (unsigned int) time(0) );
@@ -46,4 +46,6 @@ void main()
 		
 	cout << endl << endl << "-- END OF PROGRAM --" << endl;
 	char c; cin >> c;
+
+    return 1;
 }
